@@ -1,0 +1,18 @@
+// Auth Repo - outline the possible auth operations for tyhis app
+
+import 'package:app_auth/features/auth/data/domain/entities/app_user.dart';
+
+abstract class AuthRepo {
+  Future<AppUser?> loginWithEmailPassword(String email, String password);
+  Future<AppUser?> registerWithEmailPassword(
+    String name,
+    String email,
+    String password,
+  );
+  Future<void> logout();
+  Future<AppUser?> getCurrentUser();
+  Future<String> sendPaswordResetEmail(String email);
+  Future<void> deleteAccount();
+  Future<AppUser?> signInWithGoogle();
+  Future<AppUser?> signInWithApple();
+}
